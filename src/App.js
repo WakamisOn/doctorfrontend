@@ -1,24 +1,29 @@
-import logo from './logo.svg';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { ListAdminComponent } from './admincomponents/ListAdminComponent';
 import './App.css';
+import { AddDoctorComponent } from './components/AddDoctorComponent';
+import { ListDoctorComponent } from './components/ListDoctorComponent';
+import { UpdateDoctorComponent } from './components/updateDoctorComponent';
+
+    
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+      <div>
+      <Switch>
+      <Route path="/getalladmins" component={ListAdminComponent}></Route>
+      <Route path="/getalldoctors" component={ListDoctorComponent}></Route>
+      <Route path="/adddoctor" component={AddDoctorComponent}></Route>
+      <Route path="/updatedoctorbyid/:id" component={UpdateDoctorComponent}></Route>   
+     </Switch>
+     </div>
+     </BrowserRouter>
+ 
     </div>
+
   );
 }
 
